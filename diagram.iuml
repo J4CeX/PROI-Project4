@@ -1,0 +1,25 @@
+@startuml name
+
+class Menu {
+    +Run()
+    +InputInt(string): int
+}
+
+class Image {
+
+}
+
+class DataBase {
+
+}
+
+class OutFile {
+    +ofile: ofstream
+    +name: string
+    +isGood: bool
+    +saveFile( Image ): void
+}
+
+Menu --> OutFile
+Menu --> Image
+Menu --> DataBase
