@@ -6,7 +6,7 @@
 
 class Menu {
     private:
-        int inputInt(const std::string& communique="Option ->");
+        int inputInt(const std::string& communique="Option -> ");
     public:
         Menu();
         ~Menu() = default;

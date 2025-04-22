@@ -6,11 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_subdirectory(src)
 
-# Define the main executable
 add_executable(Project4 main.cpp)
 
-# No need to set full path in main thanks to this include
-target_include_directories(Project4 PUBLIC src)
+target_include_directories(Project4 PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
-# Link the interface library to the executable
 target_link_libraries(Project4 PRIVATE Menu)

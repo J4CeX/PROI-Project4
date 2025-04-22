@@ -13,7 +13,7 @@ Menu::Menu() {
         if (option == 1) {
             Rectangle rect(100, 100, 10, 10, "red", "blue");
             std::ofstream ofile;
-            ofile.open("test.txt", std::ios::out);
+            ofile.open("test.html", std::ios::out);
             if (ofile.good()) {
                 ofile << rect;
             }

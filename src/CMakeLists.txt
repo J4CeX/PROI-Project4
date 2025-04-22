@@ -4,15 +4,8 @@ project(Project4)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-file(GLOB SRC "*.cpp" "*.hpp")
+file(GLOB SRC_FILES "*.cpp")
 
+add_library(Menu STATIC ${SRC_FILES})
 
-# Create static library with cpp and hpp files
-add_library(Menu STATIC ${SRC})
-add_library(Element STATIC ${SRC})
-add_library(Image STATIC ${SRC})
-add_library(OutFile STATIC ${SRC})
-add_library(Rectangle STATIC ${SRC})
-add_library(DataBase STATIC ${SRC})
-
-
+target_include_directories(Menu PUBLIC ${CMAKE_SOURCE_DIR}/include)
