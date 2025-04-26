@@ -1,6 +1,6 @@
 #include "Circle.hpp"
 
-using namespace Element;
+using Element::Circle;
 
 std::ofstream& Element::operator<<(std::ofstream& ofile, const Circle& circle) {
     ofile << "<circle cx=\"" << circle.getX()

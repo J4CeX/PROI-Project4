@@ -1,6 +1,6 @@
 #include "Rectangle.hpp"
 
-using namespace Element;
+using Element::Rectangle;
 
 std::ofstream& Element::operator<<(std::ofstream& ofile, const Rectangle& rectangle) {
     ofile << "<rect width=\"" << rectangle.getWidth()
