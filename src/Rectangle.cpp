@@ -5,7 +5,7 @@ using namespace Element;
 std::ofstream& Element::operator<<(std::ofstream& ofile, const Rectangle& rectangle) {
     ofile << "<rect width=\"" << rectangle.getWidth()
         << "\" height=\"" << rectangle.getHeight() << "\"";
-    ofile << rectangle.getFillAndStroke();
-    ofile << "/>" << std::endl;
+    ofile << rectangle.getFillAndStrokeToFile();
+    ofile << " />" << std::endl;
     return ofile;
 }
