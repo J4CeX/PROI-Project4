@@ -11,13 +11,7 @@ Menu::Menu() {
         int option;
         option = Menu::inputInt();
         if (option == 1) {
-            Rectangle rect(100, 100, 10, 10, "red", "blue");
-            std::ofstream ofile;
-            ofile.open("test.html", std::ios::out);
-            if (ofile.good()) {
-                ofile << rect;
-            }
-            ofile.close();
+
         }
         else if (option == 0) {
             system("cls");
@@ -51,4 +45,8 @@ int Menu::inputInt(const std::string& communique) {
             return x;
         }
     }
+}
+
+void Menu::createNewImage() {
+
 }

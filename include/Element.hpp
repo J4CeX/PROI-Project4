@@ -16,6 +16,19 @@ namespace Element {
             int getHeight() const { return height; }
             std::string getFill() const { return fill; }
             std::string getStroke() const { return stroke; }
+            std::string getFillAndStroke() const {
+                std::string fillAndStroke = "";
+                if (fill != "none") {
+                    fillAndStroke += " fill=\"" + fill + "\"";
+                }
+                if (stroke != "none") {
+                    if (fill == "none") {
+                        fillAndStroke += " fill+=\"" + fill + "\"";
+                    }
+                    fillAndStroke += " stroke=\"" + stroke + "\"";
+                }
+                return fillAndStroke;
+            }
             virtual ~Element() = default;
     };
 }

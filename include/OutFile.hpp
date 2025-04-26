@@ -8,6 +8,6 @@ class OutFile {
         bool isGood;
     public:
         OutFile(const std::string& fname);
-        void saveFile(const Image& image) const;
+        void saveFile(const Image& image);
         ~OutFile();
 };

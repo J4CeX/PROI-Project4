@@ -2,19 +2,10 @@
 
 using namespace Element;
 
-std::ofstream& Element::operator<<(std::ofstream& ofile, const Rectangle& rect) {
-    ofile << "<rect width=\"" << rect.getWidth()
-        << "\" height=\"" << rect.getHeight() << "\"";
-    if (rect.getFill() != "none") {
-        ofile << " fill=\"" << rect.getFill() << "\"";
-    }
-    if (rect.getStroke() != "none") {
-        if (rect.getFill() == "none") {
-            ofile << " fill=\"" << rect.getFill() << "\"";
-        }
-        ofile << " stroke=\"" << rect.getStroke() << "\"";
-    }
+std::ofstream& Element::operator<<(std::ofstream& ofile, const Rectangle& rectangle) {
+    ofile << "<rect width=\"" << rectangle.getWidth()
+        << "\" height=\"" << rectangle.getHeight() << "\"";
+    ofile << rectangle.getFillAndStroke();
     ofile << "/>" << std::endl;
-    system("pause");
     return ofile;
 }
