@@ -19,8 +19,10 @@ namespace SVG {
             std::string getFillAndStrokeToOs() const;
             virtual std::string print() const;
             Element& operator=(const Element& secElement);
+            virtual bool operator==(const Element& secElement) const;
+            virtual bool operator!=(const Element& secElement) const { return !(*this == secElement); }
             friend std::ostream& operator<<(std::ostream& os, const Element& element);
-            virtual ~Element() = default;
+            virtual ~Element() {};
     };
     std::ostream& operator<<(std::ostream& os, const Element& element);
 }

@@ -15,5 +15,7 @@ namespace SVG {
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
             std::string print() const;
+            bool operator==(const Text& secText) const;
+            bool operator==(const Text& secText) const { return !(*this == secText); }
     };
 }

@@ -12,6 +12,8 @@ namespace SVG {
                 : Element(x, y, width, height, fill, stroke),
                 radius(radius) {};
             int getRadius() const { return radius; }
+            bool operator==(const Circle& secCircle) const;
+            bool operator!=(const Circle& secCircle) const { return !(*this == secCircle); }
             std::string print() const;
     };
 }

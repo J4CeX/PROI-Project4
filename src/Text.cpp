@@ -11,3 +11,12 @@ std::string Text::print() const {
     + getFillAndStrokeToOs() + ">" + getContent() + "</text>";
     return fileOutput;
 }
+
+bool Text::operator==(const Text& secText) const {
+    bool elementComparison = Element::operator==(secText);
+    bool textComparison = true;
+    if (fontSize != secText.fontSize) textComparison = false;
+    if (textAnchor != secText.textAnchor) textComparison = false;
+    if (content != secText.content) textComparison = false;
+    return elementComparison && textComparison;
+}

@@ -10,3 +10,9 @@ std::string Circle::print() const {
     fileOutput += "\"" + getFillAndStrokeToOs() + " />";
     return fileOutput;
 }
+
+bool Circle::operator==(const Circle& secCircle) const {
+    bool elementComparison = Element::operator==(secCircle);
+    bool circleComparison = radius == secCircle.radius;
+    return elementComparison && circleComparison;
+}
