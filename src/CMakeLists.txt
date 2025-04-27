@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 3.10)
-project(Project4)
+add_executable(Project4_source
+    Element.cpp
+    Image.cpp
+    Menu.cpp
+    OutFile.cpp
+    Rectangle.cpp
+    Text.cpp
+)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+target_include_directories(Project4_source PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
-file(GLOB SRC_FILES "*.cpp")
-
-add_library(Menu STATIC ${SRC_FILES})
-
-target_include_directories(Menu PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(Project4_source PRIVATE source)

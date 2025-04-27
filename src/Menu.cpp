@@ -1,8 +1,9 @@
 #include "Menu.hpp"
 
+using SVG::Menu;
+
 Menu::Menu() {
     using std::cout, std::endl;
-    using namespace Element;
     while (true) {
         system("cls");
         cout << "-- Welcome to the svg image generator --" << endl

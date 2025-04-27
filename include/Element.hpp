@@ -6,6 +6,7 @@ namespace SVG {
             int x, y, width, height;
             std::string fill, stroke;
         public:
+            Element() = delete;
             Element(const int& x, const int& y, const int& width, const int& height,
                 const std::string& fill = "none", const std::string& stroke = "none")
                 : x(x), y(y), width(width), height(height), fill(fill), stroke(stroke) {}

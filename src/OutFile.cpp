@@ -1,5 +1,8 @@
 #include "OutFile.hpp"
 
+using SVG::OutFile;
+using SVG::Image;
+
 OutFile::OutFile(const std::string& fname) {
     name = fname;
     ofile.open(fname);

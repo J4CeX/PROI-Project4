@@ -32,8 +32,7 @@ Element& Image::operator[](const int& index) {
         return elements[index];
     }
     else {
-        std::cout << "\aIndex out of range!" << std::endl;
-        return;
+        throw std::out_of_range("Index out of range");
     }
 }
 
