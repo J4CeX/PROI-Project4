@@ -68,6 +68,24 @@
         "xtr1common": "cpp",
         "memory_resource": "cpp",
         "string_view": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "any": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "csignal": "cpp",
+        "cstdarg": "cpp",
+        "forward_list": "cpp",
+        "iomanip": "cpp",
+        "map": "cpp",
+        "mutex": "cpp",
+        "ratio": "cpp",
+        "semaphore": "cpp",
+        "set": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "unordered_set": "cpp",
+        "xtree": "cpp",
+        "cinttypes": "cpp"
     }
 }

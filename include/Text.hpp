@@ -15,7 +15,6 @@ namespace Element {
             int getFontSize() const { return fontSize; }
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
-            friend std::ofstream& operator<<(std::ofstream& ofile, const Text& text);
+            std::string getFileOutput() const;
     };
-    std::ofstream& operator<<(std::ofstream& ofile, const Text& text);
 }

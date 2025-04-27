@@ -2,11 +2,17 @@
 
 using Element::Text;
 
+std::string Text::getFileOutput() const {
+    std::string fileOutput = "";
+    fileOutput += "<text x=\"" + getX();
+    fileOutput += "\" y=\"" + getY();
+    fileOutput += "\" font-size=\"" + getFontSize();
+    fileOutput += "\" text-anchor=\"" + getTextAnchor() + "\""
+    + getFillAndStrokeToFile() + ">" + getContent() + "</text>";
+    return fileOutput;
+}
+
 std::ofstream& Element::operator<<(std::ofstream& ofile, const Text& text) {
-    ofile << "<text x=\"" << text.getX() << "\" y=\"" << text.getY()
-        << "\" font-size=\"" << text.getFontSize()
-        << "\" text-anchor=\"" << text.getTextAnchor() << "\""
-        << text.getFillAndStrokeToFile() << ">"
-        << text.getContent() << "</text>" << std::endl;
+    ofile << text.getFileOutput() << std::endl;
     return ofile;
 }

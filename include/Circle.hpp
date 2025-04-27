@@ -13,7 +13,6 @@ namespace Element {
                 : Element(x, y, width, height, fill, stroke),
                 radius(radius) {};
             int getRadius() const { return radius; }
-            friend std::ofstream& operator<<(std::ofstream& ofile, const Circle& circle);
+            std::string getFileOutput() const;
     };
-    std::ofstream& operator<<(std::ofstream& ofile, const Circle& circle);
 }

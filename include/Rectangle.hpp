@@ -9,7 +9,5 @@ namespace Element {
                 const std::string& fill = "none",
                 const std::string& stroke = "none")
                 : Element(x, y, width, height, fill, stroke) {};
-            friend std::ofstream& operator<<(std::ofstream& ofile, const Rectangle& rect);
     };
-    std::ofstream& operator<<(std::ofstream& ofile, const Rectangle& rect);
 }

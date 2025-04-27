@@ -1,7 +1,7 @@
 #include "Element.hpp"
 
 namespace Element {
-    Element::Element(Element&& secElement) {
+    Element::Element(Element&& secElement) noexcept {
 
     }
 
@@ -17,9 +17,14 @@ namespace Element {
         return *this;
     }
 
-    Element& Element::operator=(Element&& secElement) {
+    Element& Element::operator=(Element&& secElement) noexcept {
 
     }
+
+    Element Element::operator+(const Element& secElement) const {
+
+    }
+
 
     std::string Element::getFillAndStrokeToFile() const {
         {
@@ -35,5 +40,18 @@ namespace Element {
             }
             return fillAndStroke;
         }
+    }
+
+    std::string Element::getFileOutput() const {
+        std::string fileOutput = "";
+        fileOutput = "<rect width=\"" + getWidth();
+        fileOutput += "\" height=\"" + getHeight();
+        fileOutput += "\"" + getFillAndStrokeToFile() + " />";
+        return fileOutput;
+    }
+
+    std::ofstream& operator<<(std::ofstream& ofile, const Element& element) {
+        ofile << element.getFileOutput() << std::endl;
+        return ofile;
     }
 }
