@@ -26,5 +26,5 @@ namespace Element {
             friend std::ofstream& operator<<(std::ofstream& ofile, const Element& element);
             virtual ~Element() = default;
     };
-    std::ofstream& operator<<(std::ofstream& ofile, const Element& element)
+    std::ofstream& operator<<(std::ofstream& ofile, const Element& element);
 }

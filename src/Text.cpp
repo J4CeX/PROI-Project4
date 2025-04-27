@@ -11,8 +11,3 @@ std::string Text::getFileOutput() const {
     + getFillAndStrokeToFile() + ">" + getContent() + "</text>";
     return fileOutput;
 }
-
-std::ofstream& Element::operator<<(std::ofstream& ofile, const Text& text) {
-    ofile << text.getFileOutput() << std::endl;
-    return ofile;
-}
