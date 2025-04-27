@@ -1,17 +1,24 @@
-set(TEST_SOURCES
-    CircleTests.cpp
-    ElementTests.cpp
-    ImageTests.cpp
-    OutFileTests.cpp
-    RectangleTests.cpp
-    TextTests.cpp
-)
+set(TEST_IMAGE ImageTests.cpp)
+set(TEST_CIRCLE CircleTests.cpp)
+set(TEST_RECTANGLE RectangleTests.cpp)
+set(TEST_TEXT TextTests.cpp)
+set(TEST_OutFile OutFileTests.cpp)
 
-add_executable(ElementTests ${TEST_SOURCES})
-add_executable(ImageTests ${TEST_SOURCES})
-target_link_libraries(ElementTests src_lib gtest gtest_main)
+add_executable(ImageTests ${TEST_IMAGE})
+add_executable(CircleTests ${TEST_CIRCLE})
+add_executable(RectangleTests ${TEST_RECTANGLE})
+add_executable(TextTests ${TEST_TEXT})
+add_executable(OutFileTests ${TEST_OutFile})
+
 target_link_libraries(ImageTests src_lib gtest gtest_main)
+target_link_libraries(CircleTests src_lib gtest gtest_main)
+target_link_libraries(RectangleTests src_lib gtest gtest_main)
+target_link_libraries(TextTests src_lib gtest gtest_main)
+target_link_libraries(OutFileTests src_lib gtest gtest_main)
 
 enable_testing()
-add_test(NAME ElementTests COMMAND ElementTests)
 add_test(NAME ImageTests COMMAND ImageTests)
+add_test(NAME CircleTests COMMAND CircleTests)
+add_test(NAME RectangleTests COMMAND RectangleTests)
+add_test(NAME TextTests COMMAND TextTests)
+add_test(NAME OutFileTests COMMAND OutFileTests)
