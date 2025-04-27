@@ -3,13 +3,13 @@
 using SVG::Text;
 
 std::string Text::print() const {
-    std::string fileOutput = "";
-    fileOutput += "<text x=\"" + getX();
-    fileOutput += "\" y=\"" + getY();
-    fileOutput += "\" font-size=\"" + getFontSize();
-    fileOutput += "\" text-anchor=\"" + getTextAnchor() + "\""
+    std::string output = "";
+    output += "<text x=\"" + getX();
+    output += "\" y=\"" + getY();
+    output += "\" font-size=\"" + getFontSize();
+    output += "\" text-anchor=\"" + getTextAnchor() + "\""
     + getFillAndStrokeToOs() + ">" + getContent() + "</text>";
-    return fileOutput;
+    return output;
 }
 
 bool Text::operator==(const Text& secText) const {

@@ -13,6 +13,18 @@ namespace SVG {
         return *this;
     }
 
+    std::string Element::operator+(const Element& secElement) const {
+        return print() + secElement.print();
+    }
+
+    std::string Element::operator+(const std::string& secString) const {
+        return secString + print();
+    }
+
+    void Element::operator+=(std::string& secString) const {
+        secString += print();
+    }
+
     bool Element::operator==(const Element& secElement) const {
         if (x != secElement.x) return false;
         if (y != secElement.y) return false;
@@ -39,16 +51,8 @@ namespace SVG {
         }
     }
 
-    std::string Element::print() const {
-        std::string fileOutput = "";
-        fileOutput = "<rect width=\"" + getWidth();
-        fileOutput += "\" height=\"" + getHeight();
-        fileOutput += "\"" + getFillAndStrokeToOs() + " />";
-        return fileOutput;
-    }
-
     std::ostream& operator<<(std::ostream& os, const Element& element) {
-        os << element.getFillAndStrokeToOs() << std::endl;
+        os << element.print() << std::endl;
         return os;
     }
 }

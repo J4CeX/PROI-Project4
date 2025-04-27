@@ -18,12 +18,15 @@ namespace SVG {
             std::string getFill() const { return fill; }
             std::string getStroke() const { return stroke; }
             std::string getFillAndStrokeToOs() const;
-            virtual std::string print() const;
+            virtual std::string print() const = 0;
             Element& operator=(const Element& secElement);
+            std::string operator+(const Element& secElement) const;
+            std::string operator+(const std::string& secString) const;
+            void operator+=(std::string& secString) const;
             virtual bool operator==(const Element& secElement) const;
             virtual bool operator!=(const Element& secElement) const { return !(*this == secElement); }
             friend std::ostream& operator<<(std::ostream& os, const Element& element);
-            virtual ~Element() {};
+            virtual ~Element() = default;
     };
     std::ostream& operator<<(std::ostream& os, const Element& element);
 }

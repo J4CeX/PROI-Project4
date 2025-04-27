@@ -3,12 +3,12 @@
 using SVG::Circle;
 
 std::string Circle::print() const {
-    std::string fileOutput = "";
-    fileOutput += "<circle cx=\"" + getX();
-    fileOutput += "\" cy=\"" + getY();
-    fileOutput += "\" r=\"" + getRadius();
-    fileOutput += "\"" + getFillAndStrokeToOs() + " />";
-    return fileOutput;
+    std::string output = "";
+    output += "<circle cx=\"" + getX();
+    output += "\" cy=\"" + getY();
+    output += "\" r=\"" + getRadius();
+    output += "\"" + getFillAndStrokeToOs() + " />";
+    return output;
 }
 
 bool Circle::operator==(const Circle& secCircle) const {

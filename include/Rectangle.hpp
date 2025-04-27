@@ -8,5 +8,6 @@ namespace SVG {
                 const std::string& fill = "none",
                 const std::string& stroke = "none")
                 : Element(x, y, width, height, fill, stroke) {};
+                std::string print() const;
     };
 }
