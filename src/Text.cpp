@@ -1,8 +1,8 @@
 #include "Text.hpp"
 
-using Element::Text;
+using SVG::Text;
 
-std::string Text::getFileOutput() const {
+std::string Text::print() const {
     std::string fileOutput = "";
     fileOutput += "<text x=\"" + getX();
     fileOutput += "\" y=\"" + getY();

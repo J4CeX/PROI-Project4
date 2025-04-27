@@ -1,9 +1,15 @@
 #pragma once
+#include <vector>
+#include "Element.hpp"
 
-class Image {
-    private:
-
-    public:
-        Image();
-        ~Image();
-};
+namespace SVG {
+    class Image {
+        private:
+            std::vector<Element> elements;
+        public:
+            Image();
+            Image(Image&& secImage) noexcept;
+            Image& operator=(const Image& secImage) noexcept;
+            ~Image();
+    };
+}

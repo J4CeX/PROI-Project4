@@ -1,6 +1,6 @@
 #include "Element.hpp"
 
-namespace Element {
+namespace SVG {
     class Circle: public Element {
         private:
             int radius;
@@ -12,6 +12,6 @@ namespace Element {
                 : Element(x, y, width, height, fill, stroke),
                 radius(radius) {};
             int getRadius() const { return radius; }
-            std::string getFileOutput() const;
+            std::string print() const;
     };
 }

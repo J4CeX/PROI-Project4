@@ -1,10 +1,6 @@
 #include "Element.hpp"
 
-namespace Element {
-    Element::Element(Element&& secElement) noexcept {
-
-    }
-
+namespace SVG {
     Element& Element::operator=(const Element& secElement) {
         if (this != &secElement) {
             x = secElement.x;
@@ -16,15 +12,6 @@ namespace Element {
         }
         return *this;
     }
-
-    Element& Element::operator=(Element&& secElement) noexcept {
-
-    }
-
-    Element Element::operator+(const Element& secElement) const {
-
-    }
-
 
     std::string Element::getFillAndStrokeToOs() const {
         {
@@ -42,7 +29,7 @@ namespace Element {
         }
     }
 
-    std::string Element::getFileOutput() const {
+    std::string Element::print() const {
         std::string fileOutput = "";
         fileOutput = "<rect width=\"" + getWidth();
         fileOutput += "\" height=\"" + getHeight();

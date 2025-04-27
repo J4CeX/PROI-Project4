@@ -1,6 +1,6 @@
 #include "Element.hpp"
 
-namespace Element {
+namespace SVG {
     class Text: public Element {
         private:
             int fontSize;
@@ -14,6 +14,6 @@ namespace Element {
             int getFontSize() const { return fontSize; }
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
-            std::string getFileOutput() const;
+            std::string print() const;
     };
 }

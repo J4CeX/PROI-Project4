@@ -1,6 +1,6 @@
 #include "Element.hpp"
 
-namespace Element {
+namespace SVG {
     class Rectangle: public Element {
         public:
             Rectangle(int width, int height,

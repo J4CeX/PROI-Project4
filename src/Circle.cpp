@@ -1,8 +1,8 @@
 #include "Circle.hpp"
 
-using Element::Circle;
+using SVG::Circle;
 
-std::string Circle::getFileOutput() const {
+std::string Circle::print() const {
     std::string fileOutput = "";
     fileOutput += "<circle cx=\"" + getX();
     fileOutput += "\" cy=\"" + getY();
