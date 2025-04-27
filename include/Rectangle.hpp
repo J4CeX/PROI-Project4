@@ -1,5 +1,4 @@
 #include "Element.hpp"
-#include <fstream>
 
 namespace Element {
     class Rectangle: public Element {

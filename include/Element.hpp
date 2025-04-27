@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 namespace Element {
     class Element{
@@ -18,13 +17,13 @@ namespace Element {
             int getHeight() const { return height; }
             std::string getFill() const { return fill; }
             std::string getStroke() const { return stroke; }
-            std::string getFillAndStrokeToFile() const;
+            std::string getFillAndStrokeToOs() const;
             virtual std::string getFileOutput() const;
             virtual Element operator+(const Element& secElement) const;
             virtual Element& operator=(const Element& secElement);
             virtual Element& operator=(Element&& secElement) noexcept;
-            friend std::ofstream& operator<<(std::ofstream& ofile, const Element& element);
+            friend std::ostream& operator<<(std::ostream& os, const Element& element);
             virtual ~Element() = default;
     };
-    std::ofstream& operator<<(std::ofstream& ofile, const Element& element);
+    std::ostream& operator<<(std::ostream& os, const Element& element);
 }

@@ -26,7 +26,7 @@ namespace Element {
     }
 
 
-    std::string Element::getFillAndStrokeToFile() const {
+    std::string Element::getFillAndStrokeToOs() const {
         {
             std::string fillAndStroke = "";
             if (fill != "none") {
@@ -46,12 +46,12 @@ namespace Element {
         std::string fileOutput = "";
         fileOutput = "<rect width=\"" + getWidth();
         fileOutput += "\" height=\"" + getHeight();
-        fileOutput += "\"" + getFillAndStrokeToFile() + " />";
+        fileOutput += "\"" + getFillAndStrokeToOs() + " />";
         return fileOutput;
     }
 
-    std::ofstream& operator<<(std::ofstream& ofile, const Element& element) {
-        ofile << element.getFileOutput() << std::endl;
-        return ofile;
+    std::ostream& operator<<(std::ostream& os, const Element& element) {
+        os << element.getFillAndStrokeToOs() << std::endl;
+        return os;
     }
 }

@@ -8,6 +8,6 @@ std::string Text::getFileOutput() const {
     fileOutput += "\" y=\"" + getY();
     fileOutput += "\" font-size=\"" + getFontSize();
     fileOutput += "\" text-anchor=\"" + getTextAnchor() + "\""
-    + getFillAndStrokeToFile() + ">" + getContent() + "</text>";
+    + getFillAndStrokeToOs() + ">" + getContent() + "</text>";
     return fileOutput;
 }

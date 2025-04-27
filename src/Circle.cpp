@@ -7,6 +7,6 @@ std::string Circle::getFileOutput() const {
     fileOutput += "<circle cx=\"" + getX();
     fileOutput += "\" cy=\"" + getY();
     fileOutput += "\" r=\"" + getRadius();
-    fileOutput += "\"" + getFillAndStrokeToFile() + " />";
+    fileOutput += "\"" + getFillAndStrokeToOs() + " />";
     return fileOutput;
 }
