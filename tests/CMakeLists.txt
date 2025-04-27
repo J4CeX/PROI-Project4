@@ -1,14 +1,17 @@
-add_executable(Project4_tests
-    testElement.cpp
-    testImage.cpp
-    testCircle.cpp
-    testRectangle.cpp
-    testText.cpp
-    testOutFile.cpp
+set(TEST_SOURCES
+    CircleTests.cpp
+    ElementTests.cpp
+    ImageTests.cpp
+    OutFileTests.cpp
+    RectangleTests.cpp
+    TextTests.cpp
 )
 
-target_include_directories(Project4_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
-target_link_libraries(Project4_tests PRIVATE GTest::gtest_main source)
+add_executable(ElementTests ${TEST_SOURCES})
+add_executable(ImageTests ${TEST_SOURCES})
+target_link_libraries(ElementTests src_lib gtest gtest_main)
+target_link_libraries(ImageTests src_lib gtest gtest_main)
 
-include(GoogleTest)
-gtest_discover_tests(Project4_tests)
+enable_testing()
+add_test(NAME ElementTests COMMAND ElementTests)
+add_test(NAME ImageTests COMMAND ImageTests)

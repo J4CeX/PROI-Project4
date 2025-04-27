@@ -1,4 +1,4 @@
-add_executable(Project4_source
+set(SOURCES
     Element.cpp
     Image.cpp
     Menu.cpp
@@ -7,6 +7,5 @@ add_executable(Project4_source
     Text.cpp
 )
 
-target_include_directories(Project4_source PUBLIC ${CMAKE_SOURCE_DIR}/include)
-
-target_link_libraries(Project4_source PRIVATE source)
+add_library(src_lib STATIC ${SOURCES})
+target_include_directories(src_lib PUBLIC ${CMAKE_SOURCE_DIR}/include)
