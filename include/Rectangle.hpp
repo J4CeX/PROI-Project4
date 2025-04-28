@@ -10,5 +10,6 @@ namespace SVG {
                 const std::string& stroke = "none")
                 : Element(x, y, width, height, fill, stroke) {};
                 std::string print() const override;
+                std::unique_ptr<Element> clone() const override { return std::make_unique<Rectangle>(*this); }
     };
 }

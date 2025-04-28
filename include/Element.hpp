@@ -30,6 +30,7 @@ namespace SVG {
             virtual bool operator!=(const Element& secElement) const { return !(*this == secElement); }
             friend std::ostream& operator<<(std::ostream& os, const Element& element);
             virtual ~Element() = default;
+            virtual std::unique_ptr<Element> clone() const = 0;
     };
     std::ostream& operator<<(std::ostream& os, const Element& element);
 }

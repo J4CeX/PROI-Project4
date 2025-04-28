@@ -16,6 +16,7 @@ namespace SVG {
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
             std::string print() const override;
+            std::unique_ptr<Element> clone() const override { return std::make_unique<Text>(*this); }
             bool operator==(const Text& secText) const;
             bool operator!=(const Text& secText) const;
     };

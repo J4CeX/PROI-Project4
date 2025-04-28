@@ -13,20 +13,19 @@ namespace SVG {
             int width;
             int height;
         public:
-            Image() = default;
-            Image(const int& width, const int& height, std::vector<std::unique_ptr<Element>> elements)
+            Image(const int& width, const int& height, std::vector<std::unique_ptr<Element>> elements = {})
                 : width(width), height(height), elements(std::move(elements)) {}
             Image(const Image& secImage);
-            Image(Image&& secImage) noexcept;
+            Image(Image&& secImage) noexcept = default;
             int getWidth() const { return width; }
             int getHeight() const { return height; }
             int getSize() const { return elements.size(); }
-            // void addElement(std::unique_ptr<Element> newElement);
+            void addElement(std::unique_ptr<Element> newElement);
             // void removeElement(const Element& rmElement);
-            // std::string print();
+            std::string print();
             Image& operator=(const Image& secImage);
-            Image& operator=(const Image&& secImage) noexcept;
-            ~Image() {};
+            Image& operator=(Image&& secImage) noexcept = default;
+            ~Image() = default;
 
             // class Iterator {
             //     private:

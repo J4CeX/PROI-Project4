@@ -15,5 +15,6 @@ namespace SVG {
             bool operator==(const Circle& secCircle) const;
             bool operator!=(const Circle& secCircle) const { return !(*this == secCircle); }
             std::string print() const override;
+            std::unique_ptr<Element> clone() const override { return std::make_unique<Circle>(*this); }
     };
 }
