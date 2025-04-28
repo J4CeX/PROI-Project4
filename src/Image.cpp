@@ -18,7 +18,7 @@ Image::Image(Image&& secImage) noexcept {
     secImage.height = 0;
 }
 
-std::string Image::print() {
+std::string Image::print() const {
     std::string output = "";
     output += "<svg version=\"1.1\"";
     output += "\n\twidth=\"" + to_string(getWidth());
@@ -51,4 +51,11 @@ Image& Image::operator=(Image&& secImage) noexcept {
         secImage.height = 0;
     }
     return *this;
+}
+
+namespace SVG {
+    std::ostream& operator<<(std::ostream& os, const Image& image) {
+        os << image.print();
+        return os;
+    }
 }

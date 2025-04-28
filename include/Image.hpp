@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Element.hpp"
 #include "Circle.hpp"
 #include "Rectangle.hpp"
@@ -14,6 +15,7 @@ namespace SVG {
             int width;
             int height;
         public:
+            Image() = default;
             Image(const int& width, const int& height, std::vector<std::unique_ptr<Element>> elements = {})
                 : width(width), height(height), elements(std::move(elements)) {}
             Image(const Image& secImage);
@@ -25,9 +27,11 @@ namespace SVG {
             void addElement(Args&&... args) {
                 elements.push_back(std::make_unique<T>(std::forward<Args>(args)...));
             }
-            std::string print();
+            std::string print() const;
             Image& operator=(const Image& secImage);
             Image& operator=(Image&& secImage) noexcept;
+            friend std::ostream& operator<<(std::ostream& os, const Image& image);
             ~Image() = default;
     };
+    std::ostream& operator<<(std::ostream& os, const Image& image);
 }
