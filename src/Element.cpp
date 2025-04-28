@@ -43,7 +43,7 @@ namespace SVG {
             }
             if (stroke != "none") {
                 if (fill == "none") {
-                    fillAndStroke += " fill+=\"" + fill + "\"";
+                    fillAndStroke += " fill=\"" + fill + "\"";
                 }
                 fillAndStroke += " stroke=\"" + stroke + "\"";
             }
