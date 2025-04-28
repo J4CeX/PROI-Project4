@@ -4,6 +4,13 @@ using SVG::Image;
 using SVG::Element;
 using std::to_string;
 
+Image::Image() {
+    width = 0;
+    height = 0;
+    std::vector<std::unique_ptr<Element>> emptyElements = {};
+    elements = std::move(emptyElements);
+}
+
 Image::Image(const Image& other) {
     for (const auto& elem : other.elements) {
         elements.push_back(elem->clone());

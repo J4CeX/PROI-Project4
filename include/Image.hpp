@@ -15,7 +15,7 @@ namespace SVG {
             int width;
             int height;
         public:
-            Image() = default;
+            Image();
             Image(const int& width, const int& height, std::vector<std::unique_ptr<Element>> elements = {})
                 : width(width), height(height), elements(std::move(elements)) {}
             Image(const Image& secImage);
