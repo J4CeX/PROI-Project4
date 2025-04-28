@@ -5,6 +5,7 @@ set(SOURCES
     OutFile.cpp
     Rectangle.cpp
     Text.cpp
+    Circle.cpp
 )
 
 add_library(src_lib STATIC ${SOURCES})

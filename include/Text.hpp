@@ -1,3 +1,4 @@
+#pragma once
 #include "Element.hpp"
 
 namespace SVG {
@@ -14,7 +15,7 @@ namespace SVG {
             int getFontSize() const { return fontSize; }
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
-            std::string print() const;
+            std::string print() const override;
             bool operator==(const Text& secText) const;
             bool operator!=(const Text& secText) const;
     };

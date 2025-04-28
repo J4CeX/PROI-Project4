@@ -1,12 +1,13 @@
 #include "Circle.hpp"
 
 using SVG::Circle;
+using std::to_string;
 
 std::string Circle::print() const {
     std::string output = "";
-    output += "<circle cx=\"" + getX();
-    output += "\" cy=\"" + getY();
-    output += "\" r=\"" + getRadius();
+    output += "<circle cx=\"" + to_string(getX());
+    output += "\" cy=\"" + to_string(getY());
+    output += "\" r=\"" + to_string(getRadius());
     output += "\"" + getFillAndStrokeToOs() + " />";
     return output;
 }

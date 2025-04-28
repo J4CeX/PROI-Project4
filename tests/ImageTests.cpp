@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
+#include "Image.hpp"
 
-TEST(ImageTests, ImageCreator) {
-    ASSERT_EQ(2+2, 4);
+
+TEST(ImageTests, sample) {
+    ASSERT_EQ(2 + 2, 4);
 }

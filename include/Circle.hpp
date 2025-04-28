@@ -1,3 +1,4 @@
+#pragma once
 #include "Element.hpp"
 
 namespace SVG {
@@ -14,6 +15,6 @@ namespace SVG {
             int getRadius() const { return radius; }
             bool operator==(const Circle& secCircle) const;
             bool operator!=(const Circle& secCircle) const { return !(*this == secCircle); }
-            std::string print() const;
+            std::string print() const override;
     };
 }

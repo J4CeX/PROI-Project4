@@ -1,14 +1,15 @@
 #include "Text.hpp"
 
 using SVG::Text;
+using std::to_string;
 
 std::string Text::print() const {
     std::string output = "";
-    output += "<text x=\"" + getX();
-    output += "\" y=\"" + getY();
-    output += "\" font-size=\"" + getFontSize();
-    output += "\" text-anchor=\"" + getTextAnchor() + "\""
-    + getFillAndStrokeToOs() + ">" + getContent() + "</text>";
+    output += "<text x=\"" + to_string(getX());
+    output += "\" y=\"" + to_string(getY());
+    output += "\" font-size=\"" + to_string(getFontSize());
+    output += "\" text-anchor=\"" + getTextAnchor();
+    output += "\"" + getFillAndStrokeToOs() + ">" + getContent() + "</text>";
     return output;
 }
 
