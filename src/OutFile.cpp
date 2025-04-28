@@ -16,7 +16,7 @@ OutFile::OutFile(const std::string& fname) {
 
 void OutFile::saveFile(const Image& image) {
     if (isGood) {
-
+        ofile << image;
     }
 }
 
