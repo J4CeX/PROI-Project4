@@ -5,6 +5,7 @@
 #include "Text.hpp"
 #include <vector>
 #include <memory>
+#include <algorithm>
 
 namespace SVG {
     class Image {
@@ -16,31 +17,17 @@ namespace SVG {
             Image(const int& width, const int& height, std::vector<std::unique_ptr<Element>> elements = {})
                 : width(width), height(height), elements(std::move(elements)) {}
             Image(const Image& secImage);
-            Image(Image&& secImage) noexcept = default;
+            Image(Image&& secImage) noexcept;
             int getWidth() const { return width; }
             int getHeight() const { return height; }
             int getSize() const { return elements.size(); }
-            void addElement(std::unique_ptr<Element> newElement);
-            // void removeElement(const Element& rmElement);
+            template<typename T, typename... Args>
+            void addElement(Args&&... args) {
+                elements.push_back(std::make_unique<T>(std::forward<Args>(args)...));
+            }
             std::string print();
             Image& operator=(const Image& secImage);
-            Image& operator=(Image&& secImage) noexcept = default;
+            Image& operator=(Image&& secImage) noexcept;
             ~Image() = default;
-
-            // class Iterator {
-            //     private:
-            //         std::vector<std::unique_ptr<Element>>::iterator current;
-            //     public:
-            //         Iterator(std::vector<std::unique_ptr<Element>>::iterator it) : current(it) {}
-            //         Element& operator*() const { return *(*current); }
-            //         Iterator& operator++() {
-            //             ++current;
-            //             return *this;
-            //         }
-            //         bool operator!=(const Iterator& secIterator) const { return current != secIterator.current; }
-            //         std::vector<std::unique_ptr<Element>>::iterator getCurrent() const { return current; }
-            //     };
-            // Iterator begin() { return Iterator(elements.begin()); }
-            // Iterator end() { return Iterator(elements.end()); }
     };
 }

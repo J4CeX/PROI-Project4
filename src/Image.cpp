@@ -10,24 +10,13 @@ Image::Image(const Image& other) {
     }
 }
 
-// Image::Image(Image&& secImage) noexcept {
-//     width = secImage.width;
-//     height = secImage.height;
-//     elements = std::move(secImage.elements);
-// }
-
-void Image::addElement(std::unique_ptr<Element> newElement) {
-    elements.push_back(std::move(newElement));
+Image::Image(Image&& secImage) noexcept {
+    width = secImage.width;
+    height = secImage.height;
+    elements = std::move(secImage.elements);
+    secImage.width = 0;
+    secImage.height = 0;
 }
-
-// void Image::removeElement(const Element& rmElement) {
-//     for (Image::Iterator it = begin(); it != end(); ++it) {
-//         if (*it == rmElement) {
-//             elements.erase(it.getCurrent());
-//             break;
-//         }
-//     }
-// }
 
 std::string Image::print() {
     std::string output = "";
@@ -53,11 +42,13 @@ Image& Image::operator=(const Image& other) {
 }
 
 
-// Image& Image::operator=(Image&& secImage) noexcept {
-//     if (this != &secImage) {
-//         width = secImage.width;
-//         height = secImage.height;
-//         elements = std::move(secImage.elements);
-//     }
-//     return *this;
-// }
+Image& Image::operator=(Image&& secImage) noexcept {
+    if (this != &secImage) {
+        width = secImage.width;
+        height = secImage.height;
+        elements = std::move(secImage.elements);
+        secImage.width = 0;
+        secImage.height = 0;
+    }
+    return *this;
+}
