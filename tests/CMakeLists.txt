@@ -1,9 +1,18 @@
 add_executable(RectangleTests RectangleTests.cpp )
 add_executable(TextTests TextTests.cpp)
+add_executable(CircleTests CircleTests.cpp)
+add_executable(ImageTests ImageTests.cpp)
+add_executable(OutFileTests OutFileTests.cpp)
 
 target_link_libraries(RectangleTests gtest_main src_lib)
 target_link_libraries(TextTests gtest_main src_lib)
+target_link_libraries(CircleTests gtest_main src_lib)
+target_link_libraries(ImageTests gtest_main src_lib)
+target_link_libraries(OutFileTests gtest_main src_lib)
 
 include(GoogleTest)
 gtest_discover_tests(RectangleTests)
 gtest_discover_tests(TextTests)
+gtest_discover_tests(CircleTests)
+gtest_discover_tests(ImageTests)
+gtest_discover_tests(OutFileTests)
