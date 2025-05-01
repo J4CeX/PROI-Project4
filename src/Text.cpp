@@ -37,8 +37,4 @@ namespace SVG {
         if (content != secText.content) textComparison = false;
         return elementComparison && textComparison;
     }
-
-    bool Text::operator!=(const Text& secText) const {
-        return !(*this == secText);
-    }
 }

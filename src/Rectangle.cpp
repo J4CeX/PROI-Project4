@@ -25,4 +25,8 @@ namespace SVG {
         if (newStroke == "") setStroke("none");
         else setStroke(newStroke);
     }
+
+    bool Rectangle::operator==(const Rectangle& secRectangle) const {
+        return Element::operator==(secRectangle);
+    }
 }
