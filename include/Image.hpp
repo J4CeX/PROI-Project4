@@ -30,6 +30,7 @@ namespace SVG {
             std::string print() const;
             Image& operator=(const Image& secImage);
             Image& operator=(Image&& secImage) noexcept;
+            Element* operator[](int index) const;
             friend std::ostream& operator<<(std::ostream& os, const Image& image);
             ~Image() = default;
     };

@@ -15,7 +15,11 @@ namespace SVG {
             int getFontSize() const { return fontSize; }
             std::string getTextAnchor() const { return textAnchor; }
             std::string getContent() const { return content; }
+            void setFontSize(const int& newFontSize) { fontSize = newFontSize; }
+            void setTextAnchor(const std::string& newTextAnchor) { textAnchor = newTextAnchor; }
+            void setContent(const std::string& newContent) { content = newContent; }
             std::string print() const override;
+            void edit() override;
             std::unique_ptr<Element> clone() const override { return std::make_unique<Text>(*this); }
             bool operator==(const Text& secText) const;
             bool operator!=(const Text& secText) const;

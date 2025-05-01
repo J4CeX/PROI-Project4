@@ -12,9 +12,11 @@ namespace SVG {
                 : Element(x, y, 0, 0, fill, stroke),
                 radius(radius) {};
             int getRadius() const { return radius; }
+            void setRadius(const int& newRadius) { radius = newRadius; }
             bool operator==(const Circle& secCircle) const;
             bool operator!=(const Circle& secCircle) const { return !(*this == secCircle); }
             std::string print() const override;
+            void edit() override;
             std::unique_ptr<Element> clone() const override { return std::make_unique<Circle>(*this); }
     };
 }

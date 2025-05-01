@@ -55,4 +55,9 @@ namespace SVG {
         os << element.print() << std::endl;
         return os;
     }
+
+    std::istream& operator>>(std::istream& is, Element& element) {
+        element.edit();
+        return is;
+    }
 }

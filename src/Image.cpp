@@ -59,6 +59,13 @@ namespace SVG {
         return *this;
     }
 
+    Element* Image::operator[](int index) const {
+        if (index >= 0 && index < elements.size())
+            return elements[index].get();
+        else
+            throw std::out_of_range("Index out of range!");
+    }
+
     std::ostream& operator<<(std::ostream& os, const Image& image) {
         os << image.print();
         return os;
