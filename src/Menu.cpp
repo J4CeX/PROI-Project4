@@ -154,33 +154,64 @@ namespace SVG {
     }
 
     void Menu::removeElement() {
-
+        if (image.getSize() > 0) {
+            while(true) {
+                system("cls");
+                cout << "-- Element removing --" << endl;
+                showElements();
+                cout << endl;
+                int index = inputInt("Choose element's index to remove (0 to abond) -> ");
+                if (index == 0) {
+                    system("cls");
+                    cout << "-- Removing abonded --" << endl;
+                    break;
+                }
+                else if (index > 0; index < image.getSize()) {
+                    system("cls");
+                    cout << "-- Remobing completed --" << endl;
+                    cout << image[index] << endl << endl;
+                    image.removeElement(image[index]);
+                }
+                else {
+                    cout << "-- Wrong index! --" << endl;
+                }
+            }
+        }
+        else {
+            cout << "-- There are not any elements to edit --" << endl;
+        }
+        system("pause");
     }
 
     void Menu::editElement() {
-        while(true) {
-            system("cls");
-            cout << "-- Element editing --" << endl;
-            showElements();
-            cout << endl;
-            int index = inputInt("Choose element's index to edit (0 to abond) -> ");
-            if (index == 0) {
+        if (image.getSize() > 0) {
+            while(true) {
                 system("cls");
-                cout << "-- Editing abonded --" << endl;
-                break;
+                cout << "-- Element editing --" << endl;
+                showElements();
+                cout << endl;
+                int index = inputInt("Choose element's index to edit (0 to abond) -> ");
+                if (index == 0) {
+                    system("cls");
+                    cout << "-- Editing abonded --" << endl;
+                    break;
+                }
+                else if (index > 0; index < image.getSize()) {
+                    system("cls");
+                    cout << "-- Element editing --" << endl
+                        << "Current values: " << endl
+                        << image[index] << endl
+                        << "New values: " << endl;
+                    cin >> *image[index];
+                    cout << "Editing completed" << endl;
+                }
+                else {
+                    cout << "-- Wrong index! --" << endl;
+                }
             }
-            else if (index > 0; index < image.getSize()) {
-                system("cls");
-                cout << "-- Element editing --" << endl
-                    << "Current values: " << endl
-                    << image[index] << endl
-                    << "New values: " << endl;
-                // cin >> image[index];
-                cout << "Editing completed" << endl;
-            }
-            else {
-                cout << "-- Wrong index! --" << endl;
-            }
+        }
+        else {
+            cout << "-- There are not any elements to edit --" << endl;
         }
         system("pause");
     }
