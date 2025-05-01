@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-#include <limits>
-#include <cstring>
+#include "globalCommands.hpp"
 #include "Image.hpp"
 #include "OutFile.hpp"
 
@@ -9,14 +8,15 @@ namespace SVG {
     class Menu {
         private:
             Image image;
-            int inputInt(const std::string& communique="Option -> ");
-            std::string inputSingleString(const std::string& communique="Option -> ");
             void createNewImage();
             void createNewRectangle();
             void createNewText();
             void createNewCircle();
             void addNewElement();
+            void removeElement();
+            void editElement();
             void exportImage() const;
+            void showElements() const;
             void showImage() const;
         public:
             Menu();
