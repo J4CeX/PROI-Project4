@@ -6,6 +6,7 @@ set(SOURCES
     Rectangle.cpp
     Text.cpp
     Circle.cpp
+    globalCommands.cpp
 )
 
 add_library(src_lib STATIC ${SOURCES})
