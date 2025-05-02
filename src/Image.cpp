@@ -37,12 +37,13 @@ namespace SVG {
         return output;
     }
 
-    void Image::removeElement(SVG::Element* element) {
-        auto it = std::find_if(begin(), end(), [=](SVG::Element* el) {
-            return el == element;
-        });
-        if (it != end()) {
-            elements.erase(it.base());
+    void Image::removeElement(Element* element) {
+        auto it = std::find_if(elements.begin(), elements.end(),
+            [=](const std::unique_ptr<Element>& currentElement) {
+            return currentElement.get() == element;
+            });
+        if (it != elements.end()) {
+            elements.erase(it);
         }
     }
 

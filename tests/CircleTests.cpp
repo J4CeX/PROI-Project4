@@ -43,3 +43,32 @@ TEST(CircleTests, CirclePrint) {
     std::string expectedResult = "<circle cx=\"20\" cy=\"30\" r=\"10\" fill=\"red\" stroke=\"blue\" />";
     ASSERT_EQ(circle.print(), expectedResult);
 }
+
+TEST(CircleTests, CircleSetters) {
+    Circle circle(10, 20, 30, "red", "blue");
+    ASSERT_EQ(circle.getX(), 20);
+    ASSERT_EQ(circle.getY(), 30);
+    ASSERT_EQ(circle.getRadius(), 10);
+    ASSERT_EQ(circle.getFill(), "red");
+    ASSERT_EQ(circle.getStroke(), "blue");
+    circle.setRadius(1);
+    circle.setX(2);
+    circle.setY(3);
+    circle.setFill("yellow");
+    circle.setStroke("white");
+    ASSERT_EQ(circle.getX(), 2);
+    ASSERT_EQ(circle.getY(), 3);
+    ASSERT_EQ(circle.getRadius(), 1);
+    ASSERT_EQ(circle.getFill(), "yellow");
+    ASSERT_EQ(circle.getStroke(), "white");
+}
+
+TEST(CircleTests, CirclesComparison) {
+    Circle firstCircle(10, 20, 30, "red", "blue");
+    Circle secondCircle(40, 50, 60, "yellow", "black");
+    ASSERT_TRUE(firstCircle != secondCircle);
+    ASSERT_FALSE(firstCircle == secondCircle);
+    firstCircle = secondCircle;
+    ASSERT_TRUE(firstCircle == secondCircle);
+    ASSERT_FALSE(firstCircle != secondCircle);
+}

@@ -168,7 +168,7 @@ namespace SVG {
                 }
                 else if (index > 0; index < image.getSize()) {
                     system("cls");
-                    cout << "-- Remobing completed --" << endl;
+                    cout << "-- Removing completed --" << endl;
                     cout << image[index] << endl << endl;
                     image.removeElement(image[index]);
                 }
