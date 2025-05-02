@@ -166,18 +166,21 @@ namespace SVG {
                     cout << "-- Removing abonded --" << endl;
                     break;
                 }
-                else if (index > 0; index < image.getSize()) {
+                else if (index > 0; index <= image.getSize()) {
                     system("cls");
                     cout << "-- Removing completed --" << endl;
-                    cout << image[index] << endl << endl;
-                    image.removeElement(image[index]);
+                    cout << *image[index - 1] << endl << endl;
+                    image.removeElement(image[index - 1]);
+                    break;
                 }
                 else {
                     cout << "-- Wrong index! --" << endl;
+                    system("pause");
                 }
             }
         }
         else {
+            system("cls");
             cout << "-- There are not any elements to edit --" << endl;
         }
         system("pause");
@@ -196,21 +199,24 @@ namespace SVG {
                     cout << "-- Editing abonded --" << endl;
                     break;
                 }
-                else if (index > 0; index < image.getSize()) {
+                else if (index > 0; index <= image.getSize()) {
                     system("cls");
                     cout << "-- Element editing --" << endl
                         << "Current values: " << endl
-                        << image[index] << endl
+                        << *image[index - 1] << endl
                         << "New values: " << endl;
-                    cin >> *image[index];
+                    cin >> *image[index - 1];
                     cout << "Editing completed" << endl;
+                    break;
                 }
                 else {
                     cout << "-- Wrong index! --" << endl;
+                    system("pause");
                 }
             }
         }
         else {
+            system("cls");
             cout << "-- There are not any elements to edit --" << endl;
         }
         system("pause");
@@ -235,7 +241,7 @@ namespace SVG {
         if (image.getSize() > 0) {
             cout << endl << endl;
             for (int i = 0; i < image.getSize(); i++) {
-                    cout << i + 1 << image[i] << endl;
+                    cout << i + 1 << ". " << *image[i];
             }
             cout << endl;
         }
