@@ -9,6 +9,7 @@ namespace SVG {
         private:
             Image image;
             void createNewImage();
+            void editImage();
             void createNewRectangle();
             void createNewText();
             void createNewCircle();

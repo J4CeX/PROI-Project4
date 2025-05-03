@@ -9,11 +9,12 @@ namespace SVG {
             system("cls");
             cout << "-- Welcome to the svg image generator --" << endl
             << "1. Create new image" << endl
-            << "2. Add new element" << endl
-            << "3. Edit element" << endl
-            << "4. Remove element" << endl
-            << "5. Show image" << endl
-            << "6. Export image" << endl
+            << "2. Edit image" << endl
+            << "3. Add new element" << endl
+            << "4. Edit element" << endl
+            << "5. Remove element" << endl
+            << "6. Show image" << endl
+            << "7. Export image" << endl
             << "0. Exit" << endl;
             int option;
             option = inputInt();
@@ -21,18 +22,21 @@ namespace SVG {
                 createNewImage();
             }
             else if (option == 2) {
-                addNewElement();
+                editImage();
             }
             else if (option == 3) {
-                editElement();
+                addNewElement();
             }
             else if (option == 4) {
-                removeElement();
+                editElement();
             }
             else if (option == 5) {
-                showImage();
+                removeElement();
             }
             else if (option == 6) {
+                showImage();
+            }
+            else if (option == 7) {
                 exportImage();
             }
             else if (option == 0) {
@@ -54,6 +58,22 @@ namespace SVG {
         int width = inputInt("Width = ");
         int height = inputInt("Height = ");
         image = Image(width, height);
+    }
+
+    void Menu::editImage() {
+        system("cls");
+        if (image.getWidth() && image.getHeight()) {
+            cout << "-- Image editing --" << endl
+                << "Current width = " << image.getWidth() << endl
+                << "Current height = " << image.getHeight() << endl;
+                int newWidth = inputInt("New width = ");
+                int newHeight = inputInt("New height = ");
+                cout << "-- Editing completed --" << endl;
+        }
+        else {
+            cout << "-- There is not created image --" << endl;
+        }
+        system("pause");
     }
 
     void Menu::createNewRectangle() {
