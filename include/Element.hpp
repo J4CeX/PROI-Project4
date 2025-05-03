@@ -24,7 +24,7 @@ namespace SVG {
             std::string getFillAndStrokeToOs() const;
             void setX(const int& newX) { x = newX; }
             void setY(const int& newY) { y = newY; }
-            void setWidtth(const int& newWidth) { width = newWidth; }
+            void setWidth(const int& newWidth) { width = newWidth; }
             void setHeight(const int& newHeight) { height = newHeight; }
             void setFill(const std::string& newFill) { fill = newFill; }
             void setStroke(const std::string& newStroke) { stroke = newStroke; }

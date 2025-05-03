@@ -14,7 +14,7 @@ namespace SVG {
     }
 
     void Rectangle::edit() {
-        setWidtth(inputInt("Width = "));
+        setWidth(inputInt("Width = "));
         setHeight(inputInt("Height = "));
         setY(inputInt("X = "));
         setX(inputInt("Y = "));
