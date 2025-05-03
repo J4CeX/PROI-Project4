@@ -10,6 +10,17 @@ TEST(ImageTests, ImageConstructor) {
     ASSERT_EQ(image.getSize(), 0);
 }
 
+TEST(ImageTests, ImageSetters) {
+    Image image(100, 200);
+    ASSERT_EQ(image.getWidth(), 100);
+    ASSERT_EQ(image.getHeight(), 200);
+    ASSERT_EQ(image.getSize(), 0);
+    image.setWidth(300);
+    image.setHeight(400);
+    ASSERT_EQ(image.getWidth(), 300);
+    ASSERT_EQ(image.getHeight(), 400);
+}
+
 TEST(ImageTests, ImageAddElementAndPrint) {
     Image image(100, 200);
     Circle circle(1, 2, 3, "red", "blue");
@@ -43,4 +54,7 @@ TEST(ImageTests, ImageAddElementAndRemove) {
     ASSERT_TRUE(*image[2] == *secondImage[2]);
     image.removeElement(image[1]);
     ASSERT_EQ(image.getSize(), 2);
+    ASSERT_TRUE(*image[0] == *secondImage[0]);
+    ASSERT_FALSE(*image[1] == *secondImage[1]);
+    ASSERT_TRUE(*image[1] == *secondImage[2]);
 }

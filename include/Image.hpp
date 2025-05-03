@@ -23,6 +23,8 @@ namespace SVG {
             int getWidth() const { return width; }
             int getHeight() const { return height; }
             int getSize() const { return elements.size(); }
+            void setWidth(const int& newWidth) { width = newWidth; }
+            void setHeight(const int& newHeight) { height = newHeight; }
             template<typename T, typename... Args>
             void addElement(Args&&... args) {
                 elements.push_back(std::make_unique<T>(std::forward<Args>(args)...));
