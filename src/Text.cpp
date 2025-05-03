@@ -29,12 +29,20 @@ namespace SVG {
         else setStroke(newStroke);
     }
 
-    bool Text::operator==(const Text& secText) const {
-        bool elementComparison = Element::operator==(secText);
-        bool textComparison = true;
-        if (fontSize != secText.fontSize) textComparison = false;
-        if (textAnchor != secText.textAnchor) textComparison = false;
-        if (content != secText.content) textComparison = false;
-        return elementComparison && textComparison;
+    bool Text::operator==(const Element& secElement) const {
+        const Text* secText = dynamic_cast<const Text*>(&secElement);
+        if (secText) {
+            if (getX() != secText->getX()) return false;
+            if (getY() != secText->getY()) return false;
+            if (getWidth() != secText->getWidth()) return false;
+            if (getHeight() != secText->getHeight()) return false;
+            if (getFill() != secText->getFill()) return false;
+            if (getStroke() != secText->getStroke()) return false;
+            if (fontSize != secText->fontSize) return false;
+            if (textAnchor != secText->textAnchor) return false;
+            if (content != secText->content) return false;
+            return true;
+        }
+        return false;
     }
 }

@@ -8,8 +8,9 @@ target_link_libraries(TextTests gtest_main src_lib)
 target_link_libraries(CircleTests gtest_main src_lib)
 target_link_libraries(ImageTests gtest_main src_lib)
 
+add_test(NAME CircleTests COMMAND CircleTests)
+add_test(NAME ImageTests COMMAND ImageTests)
+add_test(NAME RectangleTests COMMAND RectangleTests)
+add_test(NAME TextTests COMMAND TextTests)
+
 include(GoogleTest)
-gtest_discover_tests(RectangleTests)
-gtest_discover_tests(TextTests)
-gtest_discover_tests(CircleTests)
-gtest_discover_tests(ImageTests)

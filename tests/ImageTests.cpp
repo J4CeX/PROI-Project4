@@ -26,3 +26,21 @@ TEST(ImageTests, ImageAddElementAndPrint) {
     ASSERT_EQ(image.print(), expectedResult);
     ASSERT_EQ(image.getSize(), 3);
 }
+
+TEST(ImageTests, ImageAddElementAndRemove) {
+    Image image(100, 200);
+    Circle circle(1, 2, 3, "red", "blue");
+    Rectangle rectangle(1, 2, 3, 4, "yellow", "orange");
+    Text text("some text", 1, 2, 3, "middle", "white", "black");
+    image.addElement<Circle>(circle);
+    image.addElement<Rectangle>(rectangle);
+    image.addElement<Text>(text);
+    Image secondImage(100, 200);
+    secondImage = image;
+    ASSERT_EQ(image.getSize(), 3);
+    ASSERT_TRUE(*image[0] == *secondImage[0]);
+    ASSERT_TRUE(*image[1] == *secondImage[1]);
+    ASSERT_TRUE(*image[2] == *secondImage[2]);
+    image.removeElement(image[1]);
+    ASSERT_EQ(image.getSize(), 2);
+}

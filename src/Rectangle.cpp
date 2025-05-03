@@ -26,7 +26,17 @@ namespace SVG {
         else setStroke(newStroke);
     }
 
-    bool Rectangle::operator==(const Rectangle& secRectangle) const {
-        return Element::operator==(secRectangle);
+    bool Rectangle::operator==(const Element& secElement) const {
+        const Rectangle* secRectangle = dynamic_cast<const Rectangle*>(&secElement);
+        if (secRectangle) {
+            if (getX() != secRectangle->getX()) return false;
+            if (getY() != secRectangle->getY()) return false;
+            if (getWidth() != secRectangle->getWidth()) return false;
+            if (getHeight() != secRectangle->getHeight()) return false;
+            if (getFill() != secRectangle->getFill()) return false;
+            if (getStroke() != secRectangle->getStroke()) return false;
+            return true;
+        }
+        return false;
     }
 }

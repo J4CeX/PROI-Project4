@@ -11,8 +11,8 @@ namespace SVG {
                 : Element(x, y, width, height, fill, stroke) {};
                 std::string print() const override;
                 void edit() override;
-                bool operator==(const Rectangle& secRectangle) const;
-                bool operator!=(const Rectangle& secRectangle) const { return !(*this == secRectangle); }
+                bool operator==(const Element& secElement) const override;
+                bool operator!=(const Element& secElement) const override { return !(*this == secElement); }
                 std::unique_ptr<Element> clone() const override { return std::make_unique<Rectangle>(*this); }
     };
 }

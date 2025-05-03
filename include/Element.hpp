@@ -34,8 +34,8 @@ namespace SVG {
             std::string operator+(const Element& secElement) const;
             std::string operator+(const std::string& secString) const;
             void operator+=(std::string& secString) const;
-            virtual bool operator==(const Element& secElement) const;
-            virtual bool operator!=(const Element& secElement) const { return !(*this == secElement); }
+            virtual bool operator==(const Element& secElement) const = 0;
+            virtual bool operator!=(const Element& secElement) const = 0;
             friend std::ostream& operator<<(std::ostream& os, const Element& element);
             friend std::istream& operator>>(std::istream& is, Element& element);
             virtual ~Element() = default;

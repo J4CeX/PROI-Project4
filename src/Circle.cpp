@@ -24,9 +24,18 @@ namespace SVG {
         else setStroke(newStroke);
     }
 
-    bool Circle::operator==(const Circle& secCircle) const {
-        bool elementComparison = Element::operator==(secCircle);
-        bool circleComparison = radius == secCircle.radius;
-        return elementComparison && circleComparison;
+    bool Circle::operator==(const Element& secElement) const {
+        const Circle* secCircle = dynamic_cast<const Circle*>(&secElement);
+        if (secCircle) {
+            if (getX() != secCircle->getX()) return false;
+            if (getY() != secCircle->getY()) return false;
+            if (getWidth() != secCircle->getWidth()) return false;
+            if (getHeight() != secCircle->getHeight()) return false;
+            if (getFill() != secCircle->getFill()) return false;
+            if (getStroke() != secCircle->getStroke()) return false;
+            if (radius != secCircle->radius) return false;
+            return true;
+        }
+        return false;
     }
 }

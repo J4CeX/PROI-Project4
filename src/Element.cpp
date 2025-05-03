@@ -25,16 +25,6 @@ namespace SVG {
         secString += print();
     }
 
-    bool Element::operator==(const Element& secElement) const {
-        if (x != secElement.x) return false;
-        if (y != secElement.y) return false;
-        if (width != secElement.width) return false;
-        if (height != secElement.height) return false;
-        if (fill != secElement.fill) return false;
-        if (stroke != secElement.stroke) return false;
-        return true;
-    }
-
     std::string Element::getFillAndStrokeToOs() const {
         {
             std::string fillAndStroke = "";

@@ -21,7 +21,7 @@ namespace SVG {
             std::string print() const override;
             void edit() override;
             std::unique_ptr<Element> clone() const override { return std::make_unique<Text>(*this); }
-            bool operator==(const Text& secText) const;
-            bool operator!=(const Text& secText) const { return !(*this == secText ); }
+            bool operator==(const Element& secElement) const override;
+            bool operator!=(const Element& secElement) const override { return !(*this == secElement ); }
     };
 }
