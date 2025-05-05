@@ -1,25 +1,143 @@
 @startuml name
 
 class Menu {
-    +Run()
-    +InputInt(string): int
+    +Menu()
+    +void createNewImage()
+    +void editImage()
+    +void createNewRectangle()
+    +void createNewRectangle()
+    +void createNewText()
+    +void createNewCircle()
+    +void addNewElement()
+    +void removeElement()
+    +void editElement()
+    +void exportImage() const
+    +void showElements() const
+    +void showImage() const
+    +~Menu() = default
 }
 
 class Image {
-
+    +vector<unique_ptr<Element>> elements
+    +int width
+    +int height
+    +Image()
+    +Image(const int& width, const int& height, vector<unique_ptr<Element>> elements = {})
+    +Image(const Image& secImage)
+    +Image(Image&& secImage) noexcept
+    +int getWidth() const
+    +int getHeight() const
+    +int getSize() const
+    +void setWidth(const int& newWidth)
+    +void setHeight(const int& newHeight)
+    +template<typename T, typename... Args>
+    +void addElement(Args&&... args)
+    +void removeElement(Element* element)
+    +string print() const
+    +Image& operator=(const Image& secImage)
+    +Image& operator=(Image&& secImage) noexcept
+    +Element* operator[](int index) const
+    +friend ostream& operator<<(ostream& os, const Image& image)
+    +~Image() = default
 }
 
-class DataBase {
+class Element {
+    +int x
+    +int y
+    +int width
+    +int height
+    +string fill
+    +string stroke
+    +Element() = default
+    +Element(const int& x, const int& y, const int& width, const int& height,
+        const string& fill = "none", const string& stroke = "none")
+    +Element(const Element& secElement) = default
+    +int getX() const
+    +int getY() const
+    +int getWidth() const
+    +int getHeight() const
+    +string getFill() const
+    +string getStroke() const
+    +string getFillAndStrokeToOs() const
+    +void setX(const int& newX)
+    +void setY(const int& newY)
+    +void setWidth(const int& newWidth)
+    +void setHeight(const int& newHeight)
+    +void setFill(const string& newFill)
+    +void setStroke(const string& newStroke)
+    +virtual string print() const = 0
+    +virtual void edit() = 0
+    +Element& operator=(const Element& secElement)
+    +string operator+(const Element& secElement) const
+    +string operator+(const string& secString) const
+    +void operator+=(string& secString) const
+    +virtual bool operator==(const Element& secElement) const = 0
+    +virtual bool operator!=(const Element& secElement) const = 0
+    +friend ostream& operator<<(ostream& os, const Element& element)
+    +friend istream& operator>>(istream& is, Element& element)
+    +virtual ~Element() = default
+    +virtual unique_ptr<Element> clone() const = 0
+}
 
+class Rectangle {
+    +Rectangle(int width, int height, int x = 0, int y = 0,
+        const string& fill = "none", const string& stroke = "none")
+    +string print() const override
+    +void edit() override
+    +bool operator==(const Element& secElement) const override
+    +bool operator!=(const Element& secElement) const override
+    +unique_ptr<Element> clone() const override
+}
+
+class Circle {
+    +int radius
+    +Circle(const int& radius, const int& x = 0, const int& y = 0, const string& fill = "none",
+        const string& stroke = "none")
+    +int getRadius() const
+    +void setRadius(const int& newRadius)
+    +bool operator==(const Element& secElement) const override
+    +bool operator!=(const Element& secElement) const override
+    +string print() const override
+    +void edit() override
+    +unique_ptr<Element> clone() const override
+}
+
+class Text {
+    +int fontSize
+    +string textAnchor
+    +string content
+    +Text(const string& content, const int& x=0, const int& y=0, const int& fontSize=16, const string& textAnchor="start",
+    const string& fill="none", const string& stroke="none")
+    +int getFontSize() const
+    +string getTextAnchor() const
+    +string getContent() const
+    +void setFontSize(const int& newFontSize)
+    +void setTextAnchor(const string& newTextAnchor)
+    +void setContent(const string& newContent)
+    +string print() const override
+    +void edit() override
+    +unique_ptr<Element> clone() const override
+    +bool operator==(const Element& secElement) const override
+    +bool operator!=(const Element& secElement) const override
 }
 
 class OutFile {
-    +ofile: ofstream
-    +name: string
-    +isGood: bool
+    +ofstream ofile
+    +string name
+    +bool isGood
     +saveFile( Image ): void
+}
+
+class globalCommands <<utility>> {
+    +int inputInt()
+    +string inputSingleString()
 }
 
 Menu --> OutFile
 Menu --> Image
-Menu --> DataBase
+Image o-- Element
+Element --|> Rectangle
+Element --|> Circle
+Element --|> Text
+Element --> globalCommands
+Menu --> globalCommands
