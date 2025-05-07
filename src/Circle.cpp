@@ -13,9 +13,9 @@ namespace SVG {
     }
 
     void Circle::edit() {
-        setY(inputInt("X = "));
-        setX(inputInt("Y = "));
-        setRadius(inputInt("Radius"));
+        setX(inputInt("X = "));
+        setY(inputInt("Y = "));
+        setRadius(inputInt("Radius = "));
         std::string newFill = inputSingleString("Fill = ");
         if (newFill == "") setFill("none");
         else setFill(newFill);
