@@ -14,11 +14,11 @@ namespace SVG {
     }
 
     std::string Element::operator+(const Element& secElement) const {
-        return print() + secElement.print();
+        return print() + "\n" + secElement.print();
     }
 
     std::string Element::operator+(const std::string& secString) const {
-        return secString + print();
+        return print() + secString;
     }
 
     void Element::operator+=(std::string& secString) const {

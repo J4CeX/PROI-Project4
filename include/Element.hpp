@@ -43,4 +43,7 @@ namespace SVG {
     };
     std::ostream& operator<<(std::ostream& os, const Element& element);
     std::istream& operator>>(std::istream& is, Element& element);
+    inline std::string operator+(const std::string& preString, const Element& element) {
+        return preString + element.print();
+    }
 }
