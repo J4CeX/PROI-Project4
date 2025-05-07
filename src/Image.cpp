@@ -31,7 +31,7 @@ namespace SVG {
         output += "\" height=\"" + to_string(getHeight());
         output += "\"\n\txmlns=\"http://www.w3.org/2000/svg\">\n";
         for (auto& element: elements) {
-            output += "\t" + element->print() + "\n";
+            output += "\t" + *element + "\n";
         }
         output += "</svg>\n";
         return output;
