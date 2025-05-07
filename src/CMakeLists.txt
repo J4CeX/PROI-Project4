@@ -6,6 +6,7 @@ set(SOURCES
     Rectangle.cpp
     Text.cpp
     Circle.cpp
+    Line.cpp
     globalCommands.cpp
 )
 

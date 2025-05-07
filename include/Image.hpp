@@ -4,6 +4,7 @@
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Text.hpp"
+#include "Line.hpp"
 #include <vector>
 #include <memory>
 #include <algorithm>

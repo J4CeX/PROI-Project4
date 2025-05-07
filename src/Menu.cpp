@@ -66,8 +66,8 @@ namespace SVG {
             cout << "-- Image editing --" << endl
                 << "Current width = " << image.getWidth() << endl
                 << "Current height = " << image.getHeight() << endl;
-                int newWidth = inputInt("New width = ");
-                int newHeight = inputInt("New height = ");
+                image.setWidth(inputInt("New width = "));
+                image.setHeight(inputInt("New height = "));
                 cout << "-- Editing completed --" << endl;
         }
         else {
@@ -135,14 +135,33 @@ namespace SVG {
         system("pause");
     }
 
+    void Menu::createNewLine() {
+        system("cls");
+        cout << "-- Creating new Line --" << endl;
+        int x1 = inputInt("X1 = ");
+        int y1 = inputInt("Y1 = ");
+        int x2 = inputInt("X2 = ");
+        int y2 = inputInt("Y2 = ");
+        int strokeWidth = inputInt("Stroke Width = ");
+        std::string stroke = inputSingleString("Stroke = ");
+        if (stroke == "") stroke = "none";
+        Line newLine(x1, y1, x2, y2, strokeWidth, stroke);
+        system("cls");
+        cout << "-- Created cricle --" << endl << endl
+            << newLine << endl << endl;
+        image.addElement<Line>(newLine);
+        system("pause");
+    }
+
     void Menu::addNewElement() {
         if (image.getWidth() && image.getHeight()) {
             while (true) {
                 system("cls");
                 cout << "-- Adding new element --" << endl
-                    << "1. Creat new rectangle" << endl
-                    << "2. Creat new circle" << endl
-                    << "3. Creat new text" << endl
+                    << "1. Create new rectangle" << endl
+                    << "2. Create new circle" << endl
+                    << "3. Create new text" << endl
+                    << "4. Create new line" << endl
                     << "0. Cancel" << endl;
                 int option = inputInt();
                 if (option == 1) {
@@ -153,6 +172,9 @@ namespace SVG {
                 }
                 else if (option == 3) {
                     createNewText();
+                }
+                else if (option == 4) {
+                    createNewLine();
                 }
                 else if (option == 0) {
                     system("cls");

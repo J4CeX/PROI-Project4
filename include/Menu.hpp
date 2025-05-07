@@ -13,6 +13,7 @@ namespace SVG {
             void createNewRectangle();
             void createNewText();
             void createNewCircle();
+            void createNewLine();
             void addNewElement();
             void removeElement();
             void editElement();
