@@ -27,6 +27,8 @@ namespace SVG {
         std::string newStroke = inputSingleString("Stroke = ");
         if (newStroke == "") setStroke("none");
         else setStroke(newStroke);
+        std::cout << "Content = ";
+        std::getline(std::cin, content);
     }
 
     bool Text::operator==(const Element& secElement) const {
